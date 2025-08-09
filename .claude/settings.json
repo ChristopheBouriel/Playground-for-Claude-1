@@ -1,8 +1,36 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "afplay"
     ],
-    "deny": []
+    "deny": [
+      "Bash(rm:*)"
+    ]
+    /*"defaultMode": "acceptEdits"*/
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay ./.claude/sounds/finish.mp3"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay ./.claude/sounds/need-human.mp3"
+          }
+        ]
+      }
+    ]
   }
 }
