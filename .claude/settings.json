@@ -2,13 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(ls:*)",
-      "afplay"
+      "afplay",
+      "mcp__context7"
     ],
     "deny": [
       "Bash(rm:*)"
     ]
     /*"defaultMode": "acceptEdits"*/
   },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "context7"
+  ],
   "hooks": {
     "Stop": [
       {
