@@ -1,5 +1,5 @@
 ---
-description: Run a simple task
+description: Run a task
 ---
 
 For the given $ARGUMENTS you need to get the information about the tasks you need to do :
@@ -7,10 +7,13 @@ For the given $ARGUMENTS you need to get the information about the tasks you nee
 - If it's an issue number or URL, fetch the issues to get the information (with `gh cli`)
 
 1.  Start to make a plan about how to make the feature
-    You need to fetch all the files needed and more, find what to update, think like a real engineer that will check everything to prepare the best plan
+    You need to fetch all the files needed and more, find what to update, think like a real engineerthat will check everything to prepare the best plan
 
 2.  Make the update
     Update the files according to your plan
 
-3.  Give a feedback
-    Give me a concise feedback about the result of your work
+3.  Commit the changes
+    Commit directly your updates
+
+4.  Create a pull request
+    Create a perfect pull request with all the data needed to review your code
