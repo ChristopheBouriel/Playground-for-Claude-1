@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Dishes from "./components/Dishes";
 import Reservation from "./components/Reservation";
 import Review from "./components/Review";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
       </main>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
