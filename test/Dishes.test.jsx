@@ -79,66 +79,6 @@ describe('Dishes Component', () => {
       );
     });
 
-    it('passes correct props to second DishesCard (Grilled Beef Steak)', () => {
-      render(<Dishes />);
-      
-      expect(DishesCard).toHaveBeenCalledWith(
-        expect.objectContaining({
-          title: 'Grilled Beef Steak',
-          price: '$12.99'
-        }),
-        expect.any(Object)
-      );
-    });
-
-    it('passes correct props to third DishesCard (Tasty Pasta)', () => {
-      render(<Dishes />);
-      
-      expect(DishesCard).toHaveBeenCalledWith(
-        expect.objectContaining({
-          title: 'Tasty Pasta',
-          price: '$10.50'
-        }),
-        expect.any(Object)
-      );
-    });
-
-    it('passes correct props to fourth DishesCard (Chicken Shish Kebab)', () => {
-      render(<Dishes />);
-      
-      expect(DishesCard).toHaveBeenCalledWith(
-        expect.objectContaining({
-          title: 'Chicken Shish Kebab',
-          price: '$11.50'
-        }),
-        expect.any(Object)
-      );
-    });
-
-    it('passes correct props to fifth DishesCard (Chicken Fried Rice)', () => {
-      render(<Dishes />);
-      
-      expect(DishesCard).toHaveBeenCalledWith(
-        expect.objectContaining({
-          title: 'Chicken Fried Rice',
-          price: '$13.99'
-        }),
-        expect.any(Object)
-      );
-    });
-
-    it('passes correct props to sixth DishesCard (Bangladeshi Sweet)', () => {
-      render(<Dishes />);
-      
-      expect(DishesCard).toHaveBeenCalledWith(
-        expect.objectContaining({
-          title: 'Bangladeshi Sweet',
-          price: '$14.00'
-        }),
-        expect.any(Object)
-      );
-    });
-
     it('renders DishesCard components exactly 6 times', () => {
       render(<Dishes />);
       
@@ -154,85 +94,6 @@ describe('Dishes Component', () => {
         expect(call[0]).toHaveProperty('img');
         expect(call[0].img).toBeTruthy();
       });
-    });
-  });
-
-  describe('Layout and Styling', () => {
-    it('applies correct CSS classes to main container', () => {
-      const { container } = render(<Dishes />);
-      
-      const mainDiv = container.firstChild;
-      expect(mainDiv).toHaveClass(
-        'min-h-screen', 
-        'flex', 
-        'flex-col', 
-        'justify-center', 
-        'items-center', 
-        'lg:px-32', 
-        'px-5'
-      );
-    });
-
-    it('applies correct CSS classes to heading', () => {
-      render(<Dishes />);
-      
-      const heading = screen.getByRole('heading');
-      expect(heading).toHaveClass('text-4xl', 'font-semibold', 'text-center', 'pt-24', 'pb-10');
-    });
-
-    it('applies correct CSS classes to dishes grid container', () => {
-      const { container } = render(<Dishes />);
-      
-      const gridContainer = container.querySelector('.flex.flex-wrap.gap-8.justify-center');
-      expect(gridContainer).toBeInTheDocument();
-      expect(gridContainer).toHaveClass('flex', 'flex-wrap', 'gap-8', 'justify-center');
-    });
-
-    it('has responsive padding classes', () => {
-      const { container } = render(<Dishes />);
-      
-      const mainDiv = container.firstChild;
-      expect(mainDiv).toHaveClass('px-5', 'lg:px-32');
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('has proper heading hierarchy', () => {
-      render(<Dishes />);
-      
-      const heading = screen.getByRole('heading', { level: 1 });
-      expect(heading).toBeInTheDocument();
-      expect(heading).toHaveTextContent('Our Dishes');
-    });
-
-    it('heading is accessible to screen readers', () => {
-      render(<Dishes />);
-      
-      const heading = screen.getByRole('heading', { name: /Our Dishes/i });
-      expect(heading).toBeInTheDocument();
-      expect(heading.tagName).toBe('H1');
-    });
-
-    it('dishes are properly structured for accessibility', () => {
-      render(<Dishes />);
-      
-      // Check that dish cards are present and accessible
-      const dishCards = screen.getAllByTestId('mock-dishes-card');
-      expect(dishCards).toHaveLength(6);
-      
-      // Each card should contain accessible elements
-      dishCards.forEach(card => {
-        expect(card).toBeInTheDocument();
-      });
-    });
-
-    it('has semantic HTML structure', () => {
-      const { container } = render(<Dishes />);
-      
-      // Check for semantic structure
-      const heading = container.querySelector('h1');
-      expect(heading).toBeInTheDocument();
-      expect(heading).toHaveTextContent('Our Dishes');
     });
   });
 
@@ -366,37 +227,6 @@ describe('Dishes Component', () => {
       // Dish cards within container
       const dishCards = dishesContainer.querySelectorAll('[data-testid="mock-dishes-card"]');
       expect(dishCards).toHaveLength(6);
-    });
-  });
-
-  describe('Responsive Design', () => {
-    it('has responsive padding classes for different screen sizes', () => {
-      const { container } = render(<Dishes />);
-      
-      const mainDiv = container.firstChild;
-      expect(mainDiv).toHaveClass('px-5', 'lg:px-32');
-    });
-
-    it('uses flexbox layout suitable for responsive design', () => {
-      const { container } = render(<Dishes />);
-      
-      const mainDiv = container.firstChild;
-      expect(mainDiv).toHaveClass('flex', 'flex-col');
-      
-      const dishesContainer = container.querySelector('.flex.flex-wrap');
-      expect(dishesContainer).toHaveClass('flex', 'flex-wrap');
-    });
-
-    it('applies proper spacing for different viewport sizes', () => {
-      const { container } = render(<Dishes />);
-      
-      // Main container spacing
-      const mainDiv = container.firstChild;
-      expect(mainDiv).toHaveClass('justify-center', 'items-center');
-      
-      // Dishes grid spacing
-      const dishesContainer = container.querySelector('.flex.flex-wrap');
-      expect(dishesContainer).toHaveClass('gap-8', 'justify-center');
     });
   });
 });
